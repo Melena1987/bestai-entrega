@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    .text {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-weight: 900;
+      font-size: 60px;
+    }
+    .red { fill: #ff3b30; }
+    .blue { fill: #007aff; }
+  </style>
+  <text x="5" y="70" class="text red">B</text>
+  <text x="45" y="70" class="text blue">Ai</text>
+</svg>

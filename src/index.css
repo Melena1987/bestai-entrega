@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-bg: #ffffff; /* Pure white background */
+  --color-bg-light: #f8f9fa; /* Light grey for alternative backgrounds/cards */
+  --color-primary: #d00511; /* BestAI Red (High-contrast, WCAG AA compliant: 5.3:1 vs white) */
+  --color-primary-hover: #b0040e;
+  --color-secondary: #0066d4; /* BestAI Blue (High-contrast, WCAG AA compliant: 5.5:1 vs white) */
+  --color-secondary-hover: #0052aa;
+  --color-text: #1a1d23; /* Dark charcoal text for modern readability */
+  --color-text-muted: #5e6675; /* Slate grey for secondary text */
+  --color-border: #e2e8f0; /* Light border color */
+  
+  --font-main: 'Inter', system-ui, sans-serif;
+  
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Elegant out-expo curve */
+  
+  --nav-height: 80px;
+
+  /* Aliases for compatibility */
+  --card-bg: var(--color-bg-light);
+  --border-color: var(--color-border);
+  --text-muted: var(--color-text-muted);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-secondary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--color-secondary-hover);
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Base button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px; /* Slightly softer border radius */
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  font-family: var(--font-main);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.97); /* Tactile press micro-interaction */
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(208, 5, 17, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(208, 5, 17, 0.35);
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(0, 102, 212, 0.25);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-secondary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 102, 212, 0.35);
+  color: #fff;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  border-color: var(--color-text);
+  transform: translateY(-2px);
+}
+
+/* Sections */
+section {
+  padding: 8rem 0;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  letter-spacing: -1px;
+  line-height: 1.15; /* Prevents overlapping and large gaps when wrapped */
+}
+
+.section-title span.red {
+  color: var(--color-primary);
+}
+
+.section-title span.blue {
+  color: var(--color-secondary);
+}
+
+.section-subtitle {
+  color: var(--color-text-muted);
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 5rem;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+/* Glassmorphism utils */
+.glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03);
+}
+
+/* Scroll reveal utility */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Grid Utilities */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+
+@media (max-width: 992px) {
+  .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .section-title { font-size: 2.5rem; }
+}
+
+@media (max-width: 768px) {
+  section { padding: 5rem 0; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .section-title { font-size: 2.2rem; }
+}

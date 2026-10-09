@@ -1,0 +1,185 @@
+/* How It Works Timeline */
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.timeline-item {
+  position: relative;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.timeline-item:hover {
+  transform: translateY(-12px);
+}
+
+.timeline-number {
+  font-size: 4rem;
+  font-weight: 800;
+  color: rgba(0, 102, 212, 0.2);
+  margin-bottom: -1.5rem;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+  transition: var(--transition);
+}
+
+.timeline-item:hover .timeline-number {
+  transform: scale(1.15) rotate(-5deg);
+  opacity: 0.9;
+}
+
+.timeline-content {
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  border-top: 3px solid var(--color-primary);
+  transition: var(--transition);
+}
+
+.timeline-item:hover .timeline-content {
+  background: var(--color-bg);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-content h3 {
+  color: var(--color-text);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  transition: var(--transition);
+}
+
+.timeline-item:hover .timeline-content h3 {
+  color: var(--color-primary);
+}
+
+.timeline-content p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Projects Portfolio */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.project-card {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  transition: var(--transition);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  background: var(--color-bg);
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 102, 212, 0.15);
+}
+
+.project-img {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover .project-img img {
+  transform: scale(1.06);
+}
+
+.project-status {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 2;
+}
+
+.status-new {
+  color: #4ade80;
+  border-color: rgba(74, 222, 128, 0.3);
+}
+
+.status-closed {
+  color: #facc15;
+  border-color: rgba(250, 204, 21, 0.3);
+}
+
+.status-finished {
+  color: #60a5fa;
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+.status-sold {
+  color: #a78bfa;
+  border-color: rgba(167, 139, 250, 0.3);
+}
+
+.project-info {
+  padding: 1.5rem;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  transition: var(--transition);
+}
+
+.project-card:hover .project-info {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.project-info h3 {
+  font-size: 1.2rem;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.project-info p {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0;
+  min-height: 40px;
+}
+
+@media (max-width: 1200px) {
+  .timeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    grid-template-columns: 1fr;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
